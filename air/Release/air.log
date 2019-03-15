@@ -1,0 +1,13 @@
+﻿  stdafx.cpp
+  air.cpp
+c:\users\大好人杰哥\source\repos\air\air\air.cpp(27): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\大好人杰哥\source\repos\air\air\air.cpp(28): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\大好人杰哥\source\repos\air\air\air.cpp(29): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\大好人杰哥\source\repos\air\air\air.cpp(125): warning C4018: “<”: 有符号/无符号不匹配
+c:\users\大好人杰哥\source\repos\air\air\air.cpp(382): warning C4101: “dec_value”: 未引用的局部变量
+c:\users\大好人杰哥\source\repos\air\air\air.cpp(384): warning C4101: “char_value”: 未引用的局部变量
+  dllmain.cpp
+    正在创建库 C:\Users\大好人杰哥\source\repos\air\Release\air.lib 和对象 C:\Users\大好人杰哥\source\repos\air\Release\air.exp
+air.obj : error LNK2001: 无法解析的外部符号 __imp___invalid_parameter
+air.obj : error LNK2001: 无法解析的外部符号 __imp___CrtDbgReport
+C:\Users\大好人杰哥\source\repos\air\Release\air.dll : fatal error LNK1120: 2 个无法解析的外部命令

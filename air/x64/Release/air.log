@@ -1,0 +1,8 @@
+﻿  stdafx.cpp
+  air.cpp
+  dllmain.cpp
+    正在创建库 C:\Users\大好人杰哥\source\repos\air\x64\Release\air.lib 和对象 C:\Users\大好人杰哥\source\repos\air\x64\Release\air.exp
+  正在生成代码
+  All 29 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  air.vcxproj -> C:\Users\大好人杰哥\source\repos\air\x64\Release\air.dll
