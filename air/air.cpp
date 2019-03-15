@@ -426,11 +426,11 @@ extern "C" __declspec(dllexport) void process_check(char* tmp)
 			DWORD t1, t2;//执行时间计数变量
 			t1= GetTickCount();//执行时间计数开始
 			int record = 0;
-			static int erecord = 0;
 			char value[20];
 			//int整数类型
 			if((temp2[8]=='i')&&(temp2[9]=='n')&&(temp2[10])=='t')
-			{
+			{			
+				static int erecord = 0;
 				if(temp2[11]!=',')
 				{
 					strcpy(err, "E1004");
@@ -523,6 +523,7 @@ extern "C" __declspec(dllexport) void process_check(char* tmp)
 			//dec小数类型
 			else if((temp2[8] == 'd') && (temp2[9] == 'e') && (temp2[10]) == 'c')
 			{
+				static int erecord = 0;
 				if (temp2[11] != ',')
 				{
 					strcpy(err, "E1004");
@@ -543,6 +544,10 @@ extern "C" __declspec(dllexport) void process_check(char* tmp)
 					rec++;
 				}
 				value[record] = '\0';
+				for (int l = 0; l < record; l++)
+				{
+					cout << "value["<<l<<"]= " << value[l] << endl;
+				}
 				for (int f = 0; f < dec_count; f++)
 				{
 					if (strcmp(value, dec_list[f]) == 0)
@@ -587,7 +592,6 @@ extern "C" __declspec(dllexport) void process_check(char* tmp)
 					error_notice(err);
 					err_rewinder(err);
 				}
-				dec_count++;
 				strcpy(dec_list[erecord], value);
 				erecord++;
 				rec = &(temp2[12]);
@@ -606,6 +610,7 @@ extern "C" __declspec(dllexport) void process_check(char* tmp)
 						err_rewinder(err);
 					}
 				}
+				dec_count++;
 				rec = ftemp;
 				int tempc[64];
 				int cvalue=0;
@@ -748,8 +753,9 @@ extern "C" __declspec(dllexport) void process_check(char* tmp)
 				rec++;
 			}
 			add1[record] = '\0';
+			//cout << add1 << endl;
 			int p = 0,v=0;
-			for (; p < int_count; p++)
+			for (p=0; p < int_count; p++)
 			{
 				if ((strcmp(add1, int_list[p])) == 0)
 				{
@@ -761,9 +767,9 @@ extern "C" __declspec(dllexport) void process_check(char* tmp)
 					break;
 				}
 			}
-			for(;v<dec_count;v++)
+			for(v=0;v<dec_count;v++)
 			{
-				if ((strcmp(add1, dec_list[p])) == 0)
+				if ((strcmp(add1, dec_list[v])) == 0)
 				{
 					found = 1;
 					dec_1 = TRUE;
@@ -810,7 +816,7 @@ extern "C" __declspec(dllexport) void process_check(char* tmp)
 			}
 			for(;k<dec_count;k++)
 			{
-				if ((strcmp(add1, dec_list[p])) == 0)
+				if ((strcmp(add2, dec_list[k])) == 0)
 				{
 					found = 1;
 					dec_2 = TRUE;
@@ -840,7 +846,7 @@ extern "C" __declspec(dllexport) void process_check(char* tmp)
 			}
 			if(dec_1&&dec_2)
 			{
-				cout << dec_value[s] + dec_value[p] << endl;
+				cout << dec_value[v] + dec_value[k] << endl;
 			}
 			t6= GetTickCount();
 			cout << "执行用时：" << (t6 - t5)*1.0 / 1000 << " s" << endl;
@@ -1060,13 +1066,22 @@ extern "C" __declspec(dllexport) void debug_output1()
 		cout << "tmp2= " << tmp2 << endl;
 		cout << "tmp3= " << tmp3 << endl;
 		cout << "int_count= "<<int_count << endl;
+		cout << "dec_count= " << dec_count << endl;
 		for(int i=0;i<int_count;i++)
 		{
 			cout << "int_list["<<i<<"]= " << int_list[i] << endl;
 		}
+		for (int s = 0; s < int_count; s++)
+		{
+			cout << "int_value[" << s << "]= " << int_value[s] << endl;
+		}
 		for (int j=0; j < dec_count; j++)
 		{
 			cout << "dec_list[" << j << "]= " << dec_list[j] << endl;
+		}
+		for (int v = 0; v < dec_count; v++)
+		{
+			cout << "dec_value[" << v << "]= " << dec_value[v] << endl;
 		}
 		cout << "\n" << endl;
 	}
@@ -1089,13 +1104,22 @@ extern "C" __declspec(dllexport) void debug_output2()
 		cout << "tmp2= " << tmp2 << endl;
 		cout << "tmp3= " << tmp3 << endl;
 		cout << "int_count= " << int_count << endl;
+		cout << "dec_count= " << dec_count << endl;
 		for (int i = 0; i < int_count; i++)
 		{
 			cout << "int_list[" << i << "]= " << int_list[i] << endl;
 		}
+		for (int s = 0; s < int_count; s++)
+		{
+			cout << "int_value[" << s << "]= " << int_value[s] << endl;
+		}
 		for (int j = 0; j < dec_count; j++)
 		{
 			cout << "dec_list[" << j << "]= " << dec_list[j] << endl;
+		}
+		for (int v = 0; v < dec_count; v++)
+		{
+			cout << "dec_value[" << v << "]= " << dec_value[v] << endl;
 		}
 		cout << "\n" << endl;
 	}

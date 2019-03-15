@@ -37,7 +37,7 @@ num为产生随机数的个数，start为起始数值，end为结束数值，end必须大于start
 错误：1.当num大于end-start+1时（此时必然重复）或者num为非正值，会引发参数错误E1005
 2.end小于等于start时，会引发参数错误E1005
 
-4：变量声明与定义tql.reg（只有int,dec已完成）
+4：变量声明与定义tql.reg（只有int,dec已完成，负数暂未完成）
 原型：tql.reg(str _type,str _fuc_name,(auto)_value)
 type为定义的类型，支持int整型，dec小数型，char字符型，str字符串型，zlb扩展型
 fuc_name为所定义的变量的名称，只允许以英文字母，下划线开头，不能与保留标识符重复，同一个名称只能用于定义一种类型的变量
